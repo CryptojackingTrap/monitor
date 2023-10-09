@@ -21,7 +21,7 @@ let's call the downloaded path as "${PinPath}" in the rest of this text. for exa
 
 3- Download the latest version of the cryptojackingtrap-monitor project.
 
-4- Place cryptojackingtrap-monitor folder in "${PinPath}\source\tools" 
+4- Place the cryptojackingtrap-monitor folder in "${PinPath}\source\tools" 
 
 5- Open the project we would have in "${PinPath}\source\tools\cryptojackingtrap-monitor" by the visual studio and then build it. As a result it is expected to find CryptojackingtrapMonitor.dll file based on your platform. For example, in X64 you will find it in x64\Debug\
 
@@ -32,29 +32,33 @@ For running the application you can use command prompt to debug an executable fi
 
 2) pin.exe -pid 36999 -t "${PinPath}\source\tools\cryptojackingtrap-monitor\x64\Debug\CryptojackingtrapMonitor.dll" -support_jit_api -o fileName.out
 
-In the first command we use the <b>absolute</b> path of application.exe to debug and in the second command we use -pid to mention to an existing process id, that is 36999 in this example.
+In the first command, we use the <b>absolute</b> path of application.exe to debug, and in the second command, we use -pid to mention to an existing process ID, which is 36999 in this example.
 
-Any operating system assigns a PID (Process Id) to each process. This ID can be accessible in "Task manager / Details" in Windows.
+Any operating system assigns a PID (Process ID) to each process. This ID can be accessible in "Task Manager / Details" in Windows.
 
-In both cases we use -o to specify the output file name or output file path. But please note that the their base directory are different.
+In both cases, we use -o to specify the output file name or output file path. But please note that their base directory is different.
 
-<b>Important note - file path:</b>
+<b>Important Note - File Path:</b>
 
 In the first case (executable file), the base directory is "${PinPath}", the path that you execute the pin command. It means that if you just use " -o fileName.out" as the option, this file would be created in the "${PinPath}/fileName.out".
 
 In contrast for the second case (process id), it will be written relative to the current directory of the instrumented process, not the directory you started the Pin command from. So it is changed based on your process type.
 
-In both ways of calling PIN, if we do not use this option -o to specify the output path, the default file name is cryptojackingtrapMonitorLog.out in their relative path that are above explained.
+In both ways of calling PIN, if we do not use this option -o to specify the output path, the default file name is cryptojackingtrapMonitorLog.out in their relative path that is above explained.
 
-So in both cases specially in the second one we recommend to use a absolute path for fileName.out.
+So in both cases especially in the second one we recommend using an absolute path for fileName.out.
 
-<b>Important note - privileges:</b>
+<b>Important Note - Privileges:</b>
 
-Please note that if you don't open the command prompt as an administrator in the second command format that used PID, the output will not create. So for Windows OS, simply right-click on the command prompt and select "Run as administrator."
+Please note that if you don't open the command prompt as an administrator in the second command format that uses PID, the output will not be created. So for Windows OS, simply right-click on the command prompt and select "Run as administrator."
+
+<b>Important Note - Network Access:</b>
+
+Please be aware that many public networks, including those at universities, restrict cryptocurrency mining traffic. Ensure that you are connected to a suitable network connection to facilitate the detection of suspicious applications attempting cryptocurrency network access, as part of our cryptojacking detection approach.
 
 # Development
 
-This file is developed based on the original PIn example available in source/tools/SimpleExamples/pinatrace.cpp. The output is the all memory content read from memory in hex format in addition to its event timestamp in "%Y/%m/%d %X" format
+This file is developed based on the original PIn example available in source/tools/SimpleExamples/pinatrace.cpp. The output is all memory content read from memory in hex format in addition to its event timestamp in "%Y/%m/%d %X" format
 
 for example, each line can be like the following lines:
 2022/04/26 15:47:00     0x7ffd5b272bce
