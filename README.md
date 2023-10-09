@@ -56,6 +56,10 @@ Please note that if you don't open the command prompt as an administrator in the
 
 Please be aware that many public networks, including those at universities, restrict cryptocurrency mining traffic. Ensure that you are connected to a suitable network connection to facilitate the detection of suspicious applications attempting cryptocurrency network access, as part of our cryptojacking detection approach.
 
+<b>Important Note - Corresponding Library 64/32 bit:</b>
+
+Make sure to use the corresponding library 32-bit or 64-bit for any targeted process or application using available guidance such as [this page](https://www.top-password.com/blog/check-if-program-is-32-bit-or-64-bit-on-windows-10/#:~:text=Launch%20the%20target%20program%20you,%2Dbit%20or%2064%2Dbit.) for Windows. 
+
 # Development
 
 This file is developed based on the original PIn example available in source/tools/SimpleExamples/pinatrace.cpp. The output is all memory content read from memory in hex format in addition to its event timestamp in "%Y/%m/%d %X" format
